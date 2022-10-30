@@ -49,7 +49,7 @@ def get_median_search_time_in_matrix_by_algorithms(matrix_size, matrix_type=1):
         "exp_search_time": exp_search_time
     }
 
-def check_correctness_of_algorithms_of_algorithms():
+def check_correctness_of_algorithms():
     matrix_size = 13
     matrix_type = 2
     N = 2 ** matrix_size
@@ -66,7 +66,7 @@ def check_correctness_of_algorithms_of_algorithms():
             print(f"\n\nERROR: TARGET {target} ANS1: {bin_search_ans} ANS2: {linear_search_ans} ANS3: {exp_search_ans}\n\n")
 
 if __name__ == '__main__':
-    #check_correctness_of_algorithms_of_algorithms()
+    #check_correctness_of_algorithms()
     f = open("data.txt", "w+")
     s = "ROWS\tBINARY\tLINEAR\tEXP1\tEXP2\tEXP1/EXP2\n"
     for i in range(1, 14):
@@ -78,7 +78,6 @@ if __name__ == '__main__':
               f"  EXP1 SEARCH: {timings['exp_search_time']}\n"
               f"  EXP2 SEARCH: {timings2['exp_search_time']}\n")
         s += f"2^{i}\t{timings['bin_search_time']}\t{timings['linear_search_time']}\t{timings['exp_search_time']}\t{timings2['exp_search_time']}\t"
-        if float(timings2['exp_search_time']) != 0: s += str(int(float(float(timings['linear_search_time'])/float(timings2['exp_search_time'])))) + "\n"
-        else: s += "0" + "\n"
+        if float(timings2['exp_search_time']) == 0: s += "0" + "\n"
     f.write(s.replace(".", ","))
     f.close()

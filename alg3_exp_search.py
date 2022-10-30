@@ -30,9 +30,7 @@ def exp_search_in_row(matrix, target, row, start):
     border = 1
     while (start - border) > 0 and matrix[row][start-border] > target:
         border = border * 2
-    #if matrix[row][max(0, start-border-1)] > target: return min(start + border, max(0, start-border-1))
-    t = bin_search_in_row(matrix, target, row, left=max(0, start-border-1), right=start-border//2)
-    #print(max(0, start-border-1), start-border//2, t)
+    t = bin_search_in_row(matrix, target, row, left=max(-1, start-border-1), right=start-border//2)
     return t
 
 
@@ -59,5 +57,6 @@ if __name__ == '__main__':
     target = 5
     a = [[0,1,2,3,4],
          [4,7,8,9,10],
-         [5,7,8,11,12]]
+         [5,7,8,11,12],
+         [7,9,12,15,20]]
     print(exp_search(a, target))
