@@ -14,7 +14,8 @@ def create_matrix(x, fill_type=1):
     if fill_type == 1:
         matrix = [[((n//m*i + j) * 2) for j in range(n)] for i in range(m)]
     elif fill_type == 2:
-        matrix = [[((n // m * i * j) * 2) for j in range(n)] for i in range(m)]
+        #matrix = [[((n // m * i * j) * 2) for j in range(n)] for i in range(m)]
+        matrix = [[(n * i * j * 2 / m) for j in range(n)] for i in range(m)]
     return matrix
 
 def print_matrix(matrix):
